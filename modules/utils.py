@@ -1,0 +1,13 @@
+import time
+
+
+def timing_decorator(func):
+    def wrapper(*args, **kwargs):
+        print(f'Метод: {func.__name__}.')
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"\nВремя выполнения: {execution_time:.6f} секунд.\nРезультат:\n{result}")
+        return result
+    return wrapper
